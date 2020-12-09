@@ -14,8 +14,8 @@ namespace OverrideAglomeraFunc
 {
     public static class AnaliseAglomeracoes
     {
-        private static string SERVICEBUS_CONNECTION_STRING = "Endpoint=sb://overrideaglomeracoesidentificadas.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NKDCad8c8S8UyLUaoolz7dwfqSQralh6vJ+68GptjEs=";
-        private static string SERVICEBUS_queueName = "overrideaglomeraqueue";
+        private static string SERVICEBUS_CONNECTION_STRING = "<>";
+        private static string SERVICEBUS_queueName = "<>";
         
         private static string COMPUTER_VISION_subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
         private static string COMPUTER_VISION_endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
