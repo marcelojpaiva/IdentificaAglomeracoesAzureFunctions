@@ -14,8 +14,8 @@ namespace OverrideAglomeraFunc
 {
     public static class AnaliseAglomeracoes
     {
-        private static string SERVICEBUS_CONNECTION_STRING = "<>";
-        private static string SERVICEBUS_queueName = "<>";
+        private static string SERVICEBUS_CONNECTION_STRING = Environment.GetEnvironmentVariable("SERVICEBUS_CONNECTION_STRING");
+        private static string SERVICEBUS_QUEUE_NAME = Environment.GetEnvironmentVariable("SERVICEBUS_QUEUE_NAME");
         
         private static string COMPUTER_VISION_subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
         private static string COMPUTER_VISION_endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
@@ -119,14 +119,14 @@ namespace OverrideAglomeraFunc
             await using (ServiceBusClient client = new ServiceBusClient(SERVICEBUS_CONNECTION_STRING))
             {
                 // create a sender for the queue 
-                ServiceBusSender sender = client.CreateSender(SERVICEBUS_queueName);
+                ServiceBusSender sender = client.CreateSender(SERVICEBUS_QUEUE_NAME);
 
                 // create a message that we can send
                 ServiceBusMessage message = new ServiceBusMessage($"Aglomeração identificada na imagem {imagemName}");
 
                 // send the message
                 await sender.SendMessageAsync(message);
-                log.LogInformation($"Sent a single message to the queue: {SERVICEBUS_queueName}");
+                log.LogInformation($"Sent a single message to the queue: {SERVICEBUS_QUEUE_NAME}");
             }
         }
     }
