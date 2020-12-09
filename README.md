@@ -1,0 +1,2 @@
+# IdentificaAglomeracoesAzureFunctions
+Identificação de aglomerações Serverless com Azure
